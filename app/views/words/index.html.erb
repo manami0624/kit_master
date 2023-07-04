@@ -1,0 +1,19 @@
+<div class="contents row">
+  <% @words.each do |word| %>
+    <div class="content_post">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '編集', edit_word_path(word.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', "/words/#{word.id}", method: :delete %>
+          </li>
+        </ul>
+      </div>
+      <p class="korean-word"><%= word.korean %></p>
+      <p class="japanese-word" style="display: none;"><%= word.japanese %></p>
+    </div>
+  <% end %>
+</div>

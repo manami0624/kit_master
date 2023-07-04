@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">KitMaster</a></h1>
+        <div class="user_nav grid-6">
+          <a class="post" href="/words/new">作成する</a>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <p>
+        Copyright KitMaster 2023.
+      </p>
+    </footer>
   </body>
 </html>
