@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const koreanElements = document.querySelectorAll('.content_post .korean-word');
-  const japaneseElements = document.querySelectorAll('.content_post .japanese-word');
+  const contentPosts = document.querySelectorAll('.content_post');
 
-  koreanElements.forEach(function(element, index) {
-    element.addEventListener('click', function() {
-      if (japaneseElements[index].style.display === 'none') {
-        japaneseElements[index].style.display = 'block';
-        element.style.display = 'none';
-      } else {
-        japaneseElements[index].style.display = 'none';
-        element.style.display = 'block';
-      }
+  contentPosts.forEach(function(post) {
+    const koreanElement = post.querySelector('.korean-word');
+    const japaneseElement = post.querySelector('.japanese-word');
+
+    post.addEventListener('mouseover', function() {
+      koreanElement.style.display = 'none';
+      japaneseElement.style.display = 'block';
+    });
+
+    post.addEventListener('mouseout', function() {
+      koreanElement.style.display = 'block';
+      japaneseElement.style.display = 'none';
     });
   });
 });
