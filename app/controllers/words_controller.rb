@@ -3,7 +3,7 @@ class WordsController < ApplicationController
 
   def index
     @words = Word.all
-    @words = Word.all.order(created_at: :DESC).page(params[:page])
+    @words = Word.all.order(created_at: :ASC).page(params[:page])
   end
 
   def new
@@ -30,7 +30,8 @@ class WordsController < ApplicationController
 
   private
   def word_params
-    params.require(:word).permit(:korean, :japanese)
+    params.require(:word).permit(:korean, :japanese).merge(user_id: current_user.id)
+
   end
 
   def move_to_index

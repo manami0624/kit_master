@@ -3,6 +3,7 @@ class CreateWords < ActiveRecord::Migration[6.0]
     create_table :words do |t|
       t.string :korean
       t.string :japanese
+      t.integer :user_id
       t.timestamps
     end
   end
