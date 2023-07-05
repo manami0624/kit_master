@@ -2,6 +2,7 @@
   <% @words.each do |word| %>
     <div class="content_post">
       <div class="more">
+      <% if user_signed_in? && current_user.id == word.user_id %>
         <span><%= image_tag 'pencil.png' %></span>
         <ul class="more_list">
           <li>
@@ -11,6 +12,7 @@
             <%= link_to '削除', "/words/#{word.id}", method: :delete %>
           </li>
         </ul>
+        <% end %>
       </div>
       <p class="korean-word"><%= word.korean %></p>
       <p class="japanese-word" style="display: none;"><%= word.japanese %></p>
