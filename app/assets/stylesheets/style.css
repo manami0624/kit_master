@@ -638,7 +638,7 @@ ul li {
 body,
 html {
   height: 100%;
-  background-color: #f5f5f3;
+  background-color: #dfdfdf;
 }
 
 body {
@@ -666,7 +666,7 @@ a {
 }
 
 a:hover {
-  color: #feb1c3;
+  color: #44d9e6;
 }
 
 .bold {
@@ -675,7 +675,7 @@ a:hover {
 
 .serif,
 div.contents.row div.content_post p {
-  font-family: 'ほのか明朝', serif;
+  font-family: "游ゴシック", "YuGothic";
 }
 
 .ultra {
@@ -707,8 +707,8 @@ form input[type="submit"] {
 header.header div.header__bar.row div.grid-6 a.post {
   padding: 8px 20px;
   font-size: 14px;
-  border: 2px solid #feb1c3;
-  color: #feb1c3;
+  border: 2px solid #666666;
+  color: #666666;
   font-weight: bold;
   text-align: center;
   border-radius: 3px;
@@ -717,8 +717,8 @@ header.header div.header__bar.row div.grid-6 a.post {
 
 .btn:hover,
 header.header div.header__bar.row div.grid-6 a.post:hover {
-  border-color: #fee0de;
-  color: #fee0de;
+  border-color: #44d9e6;
+  color: #44d9e6;
 }
 
 .title {
@@ -797,7 +797,7 @@ header.header .user_nav span:after {
 }
 
 header.header .user_nav span:hover ul {
-  color: #feb1c3;
+  color: #666666;
   display: block;
 }
 
@@ -867,6 +867,7 @@ div.contents.row div.content_post {
   background-size: cover;
   background-position: center center;
   border-radius: 3px;
+  background-color: #fafafa;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   display: flex;
   justify-content: center;
@@ -879,8 +880,8 @@ div.contents.row div.content_post .more {
   top: 20px;
   right: 30px;
   z-index: 2;
-  height: 100px;
-  width: 80px;
+  height: 50px;
+  width: 40px;
   text-align: right;
 }
 
@@ -915,7 +916,7 @@ div.contents.row div.content_post .more ul.more_list li a {
 }
 
 div.contents.row div.content_post .more ul.more_list li a:hover {
-  background-color: #feb1c3;
+  background-color: #44d9e6;
   color: #fff;
 }
 
@@ -924,6 +925,15 @@ div.contents.row div.content_post p {
   margin: 0;
   font-size: 65px;
   font-weight: bold;
+  text-align: center;
+}
+
+div.contents.row .success {
+  margin: 20px 0;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  background-color: white;
+  box-sizing: border-box;
   text-align: center;
 }
 
@@ -942,7 +952,7 @@ form textarea {
 }
 
 form input[type="submit"] {
-  background-color: #feb1c3;
+  background-color: #666666;
   border-radius: 20px;
   color: #fff;
   border: 0;
@@ -950,7 +960,7 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-  background-color: #fee0de;
+  background-color: #44d9e6;
 }
 
 .container {
@@ -969,23 +979,10 @@ form input[type="submit"]:hover {
   color: #666;
 }
 
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-}
-
-.comments a {
-  color: #feb1c3;
-}
-
-.comments a:hover {
-  text-decoration: underline;
-}
-
 footer {
   margin: 30px auto;
   padding: 10px;
-  color: #D8D8D8;
+  color: #666666;
 }
 
 footer p {
