@@ -941,6 +941,10 @@ div.contents.row .success h3 {
   margin: 10px auto;
 }
 
+.page{
+  text-align: center;
+}
+
 form input,
 form textarea {
   width: 100%;
