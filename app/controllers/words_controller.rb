@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+
   def index
     @words = Word.all
     @words = Word.all.order(created_at: :DESC).page(params[:page])
@@ -29,5 +31,11 @@ class WordsController < ApplicationController
   private
   def word_params
     params.require(:word).permit(:korean, :japanese)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end
