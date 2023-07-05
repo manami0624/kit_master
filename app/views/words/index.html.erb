@@ -1,3 +1,5 @@
+<% if @words.present? %>
+
 <div class="contents row">
   <% @words.each do |word| %>
     <div class="content_post">
@@ -20,3 +22,14 @@
     <div class="page"><%= paginate @words %></div>
   <% end %>
 </div>
+
+<% else %>
+
+<div class="contents row">
+    <div class="content_post">
+      <p class="korean-word">객체 지향</p>
+      <p class="japanese-word" style="display: none;">オブジェクト指向</p>
+    </div>
+</div>
+
+<% end %>
