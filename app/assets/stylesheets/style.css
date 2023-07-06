@@ -842,6 +842,11 @@ header.header .user_nav ul li a {
   right: 0;
 }
 
+.count{
+  margin-top: 40px;
+  text-align: center;
+}
+
 div.contents.row h2 {
   margin: 20px 0;
   padding: 0;

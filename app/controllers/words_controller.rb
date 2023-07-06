@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :search]
 
   def index
     @words = Word.all
@@ -26,6 +26,14 @@ class WordsController < ApplicationController
   def update
     word = Word.find(params[:id])
     word.update(word_params)
+  end
+
+  def search
+    @words = Word.search(params[:keyword])
+    keyword = params[:keyword].to_s.strip
+    if keyword.empty?
+      redirect_to root_path
+    end
   end
 
   private

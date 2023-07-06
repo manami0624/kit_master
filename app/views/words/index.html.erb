@@ -1,35 +1,47 @@
-<% if @words.present? %>
-
-<div class="contents row">
-  <% @words.each do |word| %>
-    <div class="content_post">
-      <div class="more">
-      <% if user_signed_in? && current_user.id == word.user_id %>
-        <span><%= image_tag 'pencil.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', edit_word_path(word.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', "/words/#{word.id}", method: :delete %>
-          </li>
-        </ul>
+<% if user_signed_in? %>
+  <% if @words.present? %>
+  <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @words.total_count %>枚です</div>
+    <div class="contents row">
+      <% @words.each do |word| %>
+        <% if current_user.id == word.user_id %>
+          <div class="content_post">
+            <div class="more">
+              <span><%= image_tag 'pencil.png' %></span>
+              <ul class="more_list">
+                <li>
+                  <%= link_to '編集', edit_word_path(word.id), method: :get %>
+                </li>
+                <li>
+                  <%= link_to '削除', "/words/#{word.id}", method: :delete %>
+                </li>
+              </ul>
+            </div>
+            <p class="korean-word"><%= word.korean %></p>
+            <p class="japanese-word" style="display: none;"><%= word.japanese %></p>
+          </div>
         <% end %>
+      <% end %>
+      <div class="page"><%= paginate @words %></div>
+    </div>
+  <% else %>
+    <div class="contents row">
+        <div class="content_post">
+          <p class="korean-word">객체 지향</p>
+          <p class="japanese-word" style="display: none;">オブジェクト指向</p>
       </div>
-      <p class="korean-word"><%= word.korean %></p>
-      <p class="japanese-word" style="display: none;"><%= word.japanese %></p>
     </div>
-    <div class="page"><%= paginate @words %></div>
   <% end %>
-</div>
-
 <% else %>
-
 <div class="contents row">
+  <%= link_to new_user_registration_path do %>
     <div class="content_post">
-      <p class="korean-word">객체 지향</p>
-      <p class="japanese-word" style="display: none;">オブジェクト指向</p>
+      <p class="korean-word">계정을<br>만드시겠습니까?</p>
+      <p class="japanese-word" style="display: none;">アカウントを<br>作りますか？</p>
     </div>
-</div>
-
+  <% end %>
+  </div>
+<% end %>
+<%= form_with(url: search_words_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "単語を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
 <% end %>
