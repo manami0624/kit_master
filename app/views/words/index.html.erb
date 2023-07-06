@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% if @words.present? %>
-  <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @words.total_count %>枚です</div>
+
     <div class="contents row">
       <% @words.each do |word| %>
         <% if current_user.id == word.user_id %>
@@ -31,6 +31,8 @@
       </div>
     </div>
   <% end %>
+  <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @words.total_count %>枚です</div>
+
 <%= form_with(url: search_words_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "単語を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
@@ -38,11 +40,5 @@
 
 <% else %>
 <div class="contents row">
-  <%= link_to new_user_registration_path do %>
-    <div class="content_post">
-      <p class="korean-word">계정을<br>만드시겠습니까?</p>
-      <p class="japanese-word" style="display: none;">アカウントを<br>作りますか？</p>
-    </div>
-  <% end %>
-  </div>
+</div>
 <% end %>

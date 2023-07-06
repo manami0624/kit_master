@@ -843,7 +843,7 @@ header.header .user_nav ul li a {
 }
 
 .count{
-  margin-top: 40px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -1000,14 +1000,17 @@ footer p {
 
 .search-form {
   text-align: center;
-  padding-top: 32px;
+  padding-top: 10px;
 }
 
 .search-form .search-input {
   width: 30%;
   margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .search-form .search-btn {
   width: 10%;
 }
+
+
