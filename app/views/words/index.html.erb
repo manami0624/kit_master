@@ -1,15 +1,18 @@
 <% if user_signed_in? %>
   <% if @words.present? %>
 
-  <div class="count">単語を検索する
-
+  <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @words.total_count %>枚です</div>
+  <div class="words_contents">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <form class="search_container" action="<%= search_words_path %>" method="get">
       <input type="text" size="25" name="keyword" class="search-input">
       <input type="submit" value="&#xf002">
       <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
     </form>
-</div>
+    
+    <%= link_to "単語登録", new_word_path, class: "post bordered-link" %>
+
+  </div>
 
     <div class="contents row">
       <% @words.each do |word| %>
