@@ -4,6 +4,22 @@ class WordsController < ApplicationController
   
   def index
     @total_posts = current_user.words.count if user_signed_in?
+    @dummy_words = [
+      { korean: "객체 지향", japanese: "オブジェクト指向" },
+      { korean: "알고리즘", japanese: "アルゴリズム" },
+      { korean: "데이터베이스", japanese: "データベース" },
+      { korean: "보안", japanese: "セキュリティ" },
+    ]
+
+    if @words.present?
+      @word = @dummy_words.sample
+    else
+      @word = @dummy_words.first
+    end
+  end
+
+  def random_word
+    @word = dummy_words.sample
   end
 
   def new
@@ -48,7 +64,7 @@ class WordsController < ApplicationController
       @words = Word.all.order(created_at: :ASC).page(params[:page])
     end
   end
-
+  
   def word_params
     params.require(:word).permit(:korean, :japanese).merge(user_id: current_user.id)
   end

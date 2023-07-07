@@ -32,19 +32,19 @@
     </div>
   <% else %>
   <div class="count">単語帳を作ろう！</div>
-    <div class="contents row">
-      <div class="content_post">
-        <p class="korean-word">객체 지향</p>
-        <p class="japanese-word" style="display: none;">オブジェクト指向</p>
-      </div>
-    </div>
+<div class="contents row">
+  <div class="content_post">
+    <p class="korean-word"><%= @word[:korean] %></p>
+    <p class="japanese-word" style="display: none;"><%= @word[:japanese] %></p>
+  </div>
+</div>
   <% end %>
 <% else %>
-  <div class="count">単語帳を作ろう！</div>
-  <div class="contents row">
-    <div class="content_post">
-      <p class="korean-word">객체 지향</p>
-      <p class="japanese-word" style="display: none;">オブジェクト指向</p>
-    </div>
+  <div class="count">ログインするとオリジナル単語帳が作れるよ！</div>
+<div class="contents row">
+  <div class="content_post">
+    <p class="korean-word"><%= @word[:korean] %></p>
+    <p class="japanese-word" style="display: none;"><%= @word[:japanese] %></p>
   </div>
+</div>
 <% end %>
