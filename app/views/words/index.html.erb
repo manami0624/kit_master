@@ -17,10 +17,10 @@
             <span><%= image_tag 'pencil.png' %></span>
             <ul class="more_list">
               <li>
-                <%= link_to '編集', edit_word_path(word.id), method: :get %>
+                <%= link_to '編集', edit_word_path(word.id) %>
               </li>
               <li>
-                <%= link_to '削除', "/words/#{word.id}", method: :delete %>
+                <%= link_to '削除', word_path(word), method: :delete %>
               </li>
             </ul>
           </div>
@@ -31,6 +31,7 @@
       <div class="page"><%= paginate @words %></div>
     </div>
   <% else %>
+  <div class="count">単語帳を作ろう！</div>
     <div class="contents row">
       <div class="content_post">
         <p class="korean-word">객체 지향</p>
@@ -39,6 +40,11 @@
     </div>
   <% end %>
 <% else %>
+  <div class="count">単語帳を作ろう！</div>
   <div class="contents row">
+    <div class="content_post">
+      <p class="korean-word">객체 지향</p>
+      <p class="japanese-word" style="display: none;">オブジェクト指向</p>
+    </div>
   </div>
 <% end %>
