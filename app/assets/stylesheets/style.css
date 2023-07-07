@@ -822,6 +822,8 @@ header.header .user_nav ul li a {
   border-bottom: 1px solid #d8d8d8;
 }
 
+
+
 .form {
   background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
   background-size: cover;
@@ -843,6 +845,10 @@ header.header .user_nav ul li a {
 }
 
 .count{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 10px;
   text-align: center;
 }
@@ -953,7 +959,6 @@ div.contents.row .success h3 {
 form input,
 form textarea {
   width: 100%;
-  margin: 5px 0 15px;
   padding: 10px;
   border: 1px solid #D8D8D8;
   border-radius: 5px;
@@ -968,9 +973,9 @@ form input[type="submit"] {
   font-size: 18px;
 }
 
-form input[type="submit"]:hover {
+/* form input[type="submit"]:hover {
   background-color: #44d9e6;
-}
+} */
 
 .container {
   margin: 20px 0;
@@ -998,19 +1003,38 @@ footer p {
   text-align: center;
 }
 
-.search-form {
-  text-align: center;
-  padding-top: 10px;
+
+
+
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  width: 200px;
+  overflow: hidden;
 }
-
-.search-form .search-input {
-  width: 30%;
-  margin-right: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+.search_container input[type="text"]{
+  border: none;
+  height: 2.0em;
 }
-
-.search-form .search-btn {
-  width: 10%;
+.search_container input[type="text"]:focus {
+  outline: 0;
 }
-
-
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1.3em;
+  border: none;
+  background: none;
+  color: #3333;
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  right: 0;
+  top: -10px;
+  outline : none;
+}
