@@ -16,6 +16,7 @@
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">KitMaster</a></h1>
         <% if user_signed_in? %>
+
           <div class="user_nav grid-6">
             <%= link_to "単語登録", new_word_path, class: "post" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -28,6 +29,7 @@
         <% end %>
       </div>
     </header>
+
     <%= yield %>
     <footer>
       <p>

@@ -1,4 +1,11 @@
-<div class="count">検索結果は<%= @words.size %>件です</div>
+<div class="count">検索結果は<%= @words.size %>件です
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <form class="search_container" action="<%= search_words_path %>" method="get">
+    <input type="text" size="25" name="keyword" class="search-input">
+    <input type="submit" value="&#xf002">
+    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+  </form>
+</div>
   <div class="contents row">
     <% @words.each do |word| %>
       <% if current_user.id == word.user_id %>
@@ -20,7 +27,3 @@
       <% end %>
     <% end %>
   </div>
-<%= form_with(url: search_words_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "単語を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
