@@ -1,4 +1,9 @@
-<div class="count">検索結果は<%= @words.size %>件です</div>
+<div class="count">
+  <% if user_signed_in? %>
+    <% user_posts = current_user.words.search(params[:keyword]) %>
+    検索結果は<%= user_posts.size %>件です
+  <% end %>
+</div>
   <div class="words_contents">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <form class="search_container" action="<%= search_words_path %>" method="get">
