@@ -1,54 +1,44 @@
 <% if user_signed_in? %>
   <% if @words.present? %>
-
-  <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @words.total_count %>枚です</div>
-  <div class="words_contents">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <form class="search_container" action="<%= search_words_path %>" method="get">
-      <input type="text" size="25" name="keyword" class="search-input">
-      <input type="submit" value="&#xf002">
-      <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-    </form>
+    <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @total_posts %>枚です</div>
     
-    <%= link_to "単語登録", new_word_path, class: "post bordered-link" %>
-
-  </div>
-
+    <div class="words_contents">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <form class="search_container" action="<%= search_words_path %>" method="get">
+        <input type="text" size="25" name="keyword" class="search-input">
+        <input type="submit" value="&#xf002">
+        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
     <div class="contents row">
-      <% @words.each do |word| %>
-        <% if current_user.id == word.user_id %>
-          <div class="content_post">
-            <div class="more">
-              <span><%= image_tag 'pencil.png' %></span>
-              <ul class="more_list">
-                <li>
-                  <%= link_to '編集', edit_word_path(word.id), method: :get %>
-                </li>
-                <li>
-                  <%= link_to '削除', "/words/#{word.id}", method: :delete %>
-                </li>
-              </ul>
-            </div>
-            <p class="korean-word"><%= word.korean %></p>
-            <p class="japanese-word" style="display: none;"><%= word.japanese %></p>
+      <% @words.where(user_id: current_user.id).each do |word| %>
+        <div class="content_post">
+          <div class="more">
+            <span><%= image_tag 'pencil.png' %></span>
+            <ul class="more_list">
+              <li>
+                <%= link_to '編集', edit_word_path(word.id), method: :get %>
+              </li>
+              <li>
+                <%= link_to '削除', "/words/#{word.id}", method: :delete %>
+              </li>
+            </ul>
           </div>
-        <% end %>
+          <p class="korean-word"><%= word.korean %></p>
+          <p class="japanese-word" style="display: none;"><%= word.japanese %></p>
+        </div>
       <% end %>
       <div class="page"><%= paginate @words %></div>
     </div>
   <% else %>
     <div class="contents row">
-        <div class="content_post">
-          <p class="korean-word">객체 지향</p>
-          <p class="japanese-word" style="display: none;">オブジェクト指向</p>
+      <div class="content_post">
+        <p class="korean-word">객체 지향</p>
+        <p class="japanese-word" style="display: none;">オブジェクト指向</p>
       </div>
     </div>
   <% end %>
-
-
-
-
 <% else %>
-<div class="contents row">
-</div>
+  <div class="contents row">
+  </div>
 <% end %>

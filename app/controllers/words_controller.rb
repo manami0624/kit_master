@@ -3,7 +3,14 @@ class WordsController < ApplicationController
 
   def index
     @words = Word.all
-    @words = Word.all.order(created_at: :ASC).page(params[:page])
+    if user_signed_in?
+      user_posts = current_user.words
+      @total_posts = user_posts.count
+      @words = user_posts.order(created_at: :ASC).page(params[:page])
+    else
+      @words = Word.all.order(created_at: :ASC).page(params[:page])
+    end
+    @total_posts = current_user.words.count if user_signed_in?
   end
 
   def new
