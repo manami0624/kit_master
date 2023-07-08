@@ -22,10 +22,10 @@
           <span><%= "#{current_user.nickname}さん" %>
             <ul class="user__info">
               <li>
-                <%= link_to "単語クイズ", root_path %>
+                <%= link_to "MY単語帳", "/users/#{current_user.id}" %>
               </li>
               <li>
-                <%= link_to "MY単語帳", "/users/#{current_user.id}" %>
+                <%= link_to "単語クイズ", root_path %>
               </li>
               <li>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

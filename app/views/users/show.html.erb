@@ -1,6 +1,6 @@
-  <% if @words.present? %>
+  
     <div class="count"><%= current_user.nickname %>さんの単語帳は<%= @total_posts %>枚です</div>
-    
+    <% if @words.present? %>
     <div class="words_contents">
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
       <form class="search_container" action="<%= search_words_path %>" method="get">
@@ -8,6 +8,8 @@
         <input type="submit" value="&#xf002">
         <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
       </form>
+    <% end %>
+      <%# <%= link_to "単語登録", new_word_path, class: "post bordered-link"%> 
     </div>
     <div class="contents row">
       <% @words.where(user_id: current_user.id).each do |word| %>
@@ -29,4 +31,3 @@
       <% end %>
       <div class="page"><%= paginate @words %></div>
     </div>
-  <% end %>

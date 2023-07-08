@@ -49,12 +49,19 @@ class WordsController < ApplicationController
   end
 
   def create
-    Word.create(word_params)
+    @word = Word.new(word_params)
+    if @word.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
+  
 
   def destroy
     word = Word.find(params[:id])
     word.destroy
+    redirect_to user_path(current_user)  
   end
 
   def edit
@@ -62,8 +69,12 @@ class WordsController < ApplicationController
   end
 
   def update
-    word = Word.find(params[:id])
-    word.update(word_params)
+    @word = Word.find(params[:id])
+    if @word.update(word_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def search
