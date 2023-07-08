@@ -58,3 +58,7 @@ gem 'pry-rails'
 gem 'kaminari'
 
 gem 'devise'
+
+group :production do
+  gem 'pg'
+end
