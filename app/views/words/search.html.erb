@@ -11,7 +11,7 @@
     <input type="submit" value="&#xf002">
     <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
   </form>
-  <%= link_to "戻る", "/users/#{current_user.id}", class: "post bordered-link"%>
+  <%= link_to "戻る", user_path(current_user), class: "post bordered-link"%>
 </div>
   <div class="contents row">
     <% @words.each do |word| %>
@@ -24,7 +24,7 @@
                 <%= link_to '編集', edit_word_path(word.id), method: :get %>
               </li>
               <li>
-                <%= link_to '削除', "/words/#{word.id}", method: :delete %>
+                <%= link_to '削除', word_path(word.id), method: :delete %>
               </li>
             </ul>
           </div>
