@@ -36,12 +36,7 @@ class WordsController < ApplicationController
       { korean: "단위 테스트", japanese: "単体テスト"},
       { korean: "통합 테스트", japanese: "結合テスト"}
     ]
-  
-    if @words.present?
-      @word = @words.sample
-    else
       @word = @dummy_words.sample
-    end
   end
   
   def random_word
